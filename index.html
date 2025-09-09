@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Readability Score Checker & Analysis Tool | Coding Clave Media LLC</title>
+    <meta name="description" content="Use our free Content Readability Score Checker Tool to analyze and optimize your writing for clarity. Improve SEO, boost engagement, and get detailed content analysis instantly.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Coding Clave Media LLC">
+<meta name="generator" content="WordPress">
+
+<meta name="keywords" content="readability checker, content analysis, readability score, SEO tool, content optimizer, Flesch-Kincaid, Gunning Fog, keyword density, free tool">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="assets/imgs/favcc.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://codingclave.us/content-readability-score-checker">
+      <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/all.min.css">
+  <link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/vendor/progressbar.css">
+  <link rel="stylesheet" href="assets/vendor/meanmenu.min.css">
+  <link rel="stylesheet" href="assets/vendor/magnific-popup.css">
+  <link rel="stylesheet" href="assets/vendor/animate.min.css">
+  <link rel="stylesheet" href="assets/vendor/nice-select.css"> 
+
+  <!-- Template Main CSS File -->  
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Content Readability Score Checker & Analysis Tool",
+  "description": "A free online tool to analyze your content's readability, SEO, and engagement metrics. Features include Flesch-Kincaid, Gunning Fog Index, keyword density, and meta tag generation.",
+  "url": "https://codingclave.us/content-readability-score-checker",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Organization",
+    "name": "Coding Clave Media LLC",
+    "url": "https://codingclave.us/"
+  }
+}
+</script>
+  
+  
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+        }
+        /* Custom scrollbar for textarea */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+        /* Circular Progress Bar Styles */
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        /* Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            /* Ensure fixed width/height for consistent flip */
+            width: 100%; /* Will be constrained by grid, but good to define */
+            height: 200px; /* Adjust height as needed for content */
+            perspective: 1000px; /* 3D perspective for the flip effect */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s; /* Speed of the flip */
+            transform-style: preserve-3d; /* Keep 3D transformation for children */
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Hide the back of the element when facing away */
+            backface-visibility: hidden; /* Standard property */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border: 1px solid #e2e8f0; /* border border-gray-200 */
+            padding: 1.5rem; /* p-6 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flip-card-front {
+            background-color: #ffffff; /* bg-white */
+            color: #1a202c; /* text-gray-900 */
+        }
+
+        .flip-card-back {
+            background-color: #f7fafc; /* light background for back */
+            color: #4a5568; /* text-gray-700 */
+            transform: rotateY(180deg); /* Start rotated for the back side */
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: left; /* Adjust text alignment for readability */
+        }
+
+        .flip-card-back p {
+            max-width: 90%; /* Constrain text width inside back */
+        }
+
+        /* Highlight for difficult terms */
+        .highlight-difficult {
+            background-color: #fde68a; /* yellow-200 */
+            border-bottom: 2px dashed #f59e0b; /* orange-500 */
+            cursor: help;
+            font-weight: 600; /* semi-bold */
+        }
+
+    </style>
+</head>
+<body class="body-wrapper body-marketing-agency" style="padding-top:50px;">
+    
+
+ 
+  <!-- Header area start -->
+    <?php include('header.php') ?>
+  <!-- Header area end -->
+  <div class="has-smooth" id="has_smooth"></div>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+    
+    <div style="padding-top:150px;">
+    <div class="m-auto max-w-4xl w-full bg-white p-8 rounded-xl shadow-2xl space-y-8"  style="margin-top:250px;">
+        <h1 class="text-4xl font-extrabold text-gray-900 text-center mb-4">
+            Content Readability Score Checker & Analysis Tool 
+        </h1>
+        <p class="text-center text-sm text-gray-500 mb-8">
+            You are visitor #<span id="visitorCounter" class="font-semibold text-blue-600">0</span> to use this tool.
+        </p>
+
+        <div class="space-y-6">
+            <label for="contentText" class="block text-lg font-medium text-gray-700">
+                Paste your content here:
+            </label>
+            <textarea
+                id="contentText"
+                rows="15"
+                class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900 text-base transition duration-300 ease-in-out resize-y"
+                placeholder="Start typing or paste your article, essay, or any text here to get its readability scores..."
+            ></textarea>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                    id="analyzeButton"
+                    class="w-full flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-lg text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:-translate-y-0.5"
+                >
+                    Analyze Readability Scores
+                </button>
+                <button
+                    id="contentAnalysisButton"
+                    class="w-full flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-lg text-lg font-semibold text-white bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-300 ease-in-out transform hover:-translate-y-0.5"
+                >
+                    Content Analysis ðŸ“Š
+                </button>
+                <button
+                    id="generateMetaTagsButton"
+                    class="w-full flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-lg text-lg font-semibold text-white bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-300 ease-in-out transform hover:-translate-y-0.5 md:col-span-2"
+                >
+                    Generate Meta Tags & SEO Data ðŸš€
+                </button>
+            </div>
+        </div>
+
+        <div id="loadingReadability" class="hidden flex justify-center items-center py-6">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-blue-500"></div>
+            <p class="ml-4 text-lg text-gray-600">Analyzing Readability Scores...</p>
+        </div>
+        <div id="loadingContentAnalysis" class="hidden flex justify-center items-center py-6">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-yellow-500"></div>
+            <p class="ml-4 text-lg text-gray-600">Performing Content Analysis...</p>
+        </div>
+        <div id="loadingMetaTags" class="hidden flex justify-center items-center py-6">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-4 border-orange-500"></div>
+            <p class="ml-4 text-lg text-gray-600">Generating Meta Tags...</p>
+        </div>
+
+        <div id="readabilitySection" class="hidden mt-10">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">
+                Readability Scores
+            </h2>
+            <div id="scoresContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div id="readabilityScoreCircle" class="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col items-center justify-center text-center">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Overall Readability</h3>
+                    <div class="relative w-32 h-32">
+                        <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <circle
+                                class="text-gray-300"
+                                stroke-width="10"
+                                stroke="currentColor"
+                                fill="transparent"
+                                r="40"
+                                cx="50"
+                                cy="50"
+                            />
+                            <circle
+                                id="readabilityProgressCircle"
+                                class="text-blue-500 progress-ring__circle"
+                                stroke-width="10"
+                                stroke="currentColor"
+                                fill="transparent"
+                                r="40"
+                                cx="50"
+                                cy="50"
+                                stroke-dasharray="251.2"
+                                stroke-dashoffset="251.2"
+                            />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span id="readabilityPercentage" class="text-2xl font-bold text-gray-800">0%</span>
+                            <span id="readabilityGrade" class="text-lg font-medium text-gray-600"></span>
+                        </div>
+                    </div>
+                    <!--<p class="text-sm text-gray-500 mt-2">Based on Flesch-Kincaid Grade Level</p>-->
+                </div>
+            </div>
+            <div id="readabilityErrorMessage" class="hidden text-red-600 text-center mt-4 text-lg font-medium">
+                </div>
+        </div>
+
+        <div id="contentAnalysisSection" class="hidden mt-10">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">
+                Content Analysis ðŸ“Š
+            </h2>
+            <div id="contentAnalysisContent" class="bg-yellow-50 p-6 rounded-xl shadow-md border border-yellow-200 text-gray-800 leading-relaxed">
+                <div id="detailsSection" class="mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Words:</span>
+                            <span id="analysisWords" class="font-bold text-xl">0</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Characters:</span>
+                            <span id="analysisCharacters" class="font-bold text-xl">0</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Sentences:</span>
+                            <span id="analysisSentences" class="font-bold text-xl">0</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Paragraphs:</span>
+                            <span id="analysisParagraphs" class="font-bold text-xl">0</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Reading Time:</span>
+                            <span id="analysisReadingTime" class="font-bold text-xl">0 mins</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Speaking Time:</span>
+                            <span id="analysisSpeakingTime" class="font-bold text-xl">0 mins</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-yellow-100 p-3 rounded-lg">
+                            <span class="font-medium">Reading Level:</span>
+                            <span id="analysisReadingLevel" class="font-bold text-xl">N/A</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="keywordDensitySection" class="mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Keyword Density (Top 10 Content Keywords)</h3>
+                    <div id="keywordDensityList" class="space-y-2">
+                        </div>
+                </div>
+
+                <div id="difficultTermsSection" class="mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Difficult Terms</h3>
+                    <p class="text-gray-700 mb-4">Found <span id="difficultTermsCount" class="font-bold text-red-600">0</span> potentially difficult terms:</p>
+                    <div id="highlightedContentDisplay" class="bg-yellow-100 p-4 rounded-lg text-base overflow-y-auto max-h-80">
+                        </div>
+                </div>
+            </div>
+            <div id="contentAnalysisError" class="hidden text-red-600 text-center mt-4 text-lg font-medium">
+                </div>
+        </div>
+
+        <div id="metaTagsSection" class="hidden mt-10">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">
+                Generated Meta Tags & SEO Data ðŸš€
+            </h2>
+            <div id="metaTagsContent" class="bg-orange-50 p-6 rounded-xl shadow-md border border-orange-200 text-gray-800 leading-relaxed">
+                </div>
+            <div id="metaTagsError" class="hidden text-red-600 text-center mt-4 text-lg font-medium">
+                </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="container my-5">
+
+        <header class="text-center mb-5">
+            <h2 class="display-4">The Ultimate Content Readability Score Checker Tool</h2>
+            <p class="lead mt-3">In the crowded digital world, having great ideas and a unique voice isn't enough. Your content must also be clear, accessible, and engaging. That’s where our **content readability score checker tool** comes in.</p>
+            <p class="lead">It’s an indispensable, all-in-one solution designed to analyze your text's clarity and complexity, ensuring your message is understood by your readers and valued by search engines.</p>
+        </header>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+            <h2 class="mb-4 text-center fw-bold">The Power of Readability: Beyond a Simple Score</h2>
+            <p class="text-muted text-center">Readability is more than just a number—it’s a powerful signal of quality. A high readability score indicates that your content is easy to scan, simple to comprehend, and a pleasure to read.</p>
+            
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Enhanced User Experience (UX) and Engagement</h5>
+                            <p class="card-text">When a visitor lands on your page, a dense wall of text can be an immediate turn-off. A highly readable page, on the other hand, guides the reader smoothly from one point to the next. This leads to longer time-on-page and lower bounce rates, signals that your content is valuable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">Improved Search Engine Optimization (SEO)</h5>
+                            <p class="card-text">Google and other search engines prioritize content that is truly "helpful." Readable content naturally fits this description. By using a readability checker, you can improve key signals like E-E-A-T and lower bounce rates, which are critical for better rankings.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-info">Better Conversion Rates</h5>
+                            <p class="card-text">Clear messaging is key to a successful conversion. If your call to action or the benefits of your offer are buried in complex prose, users won't take the next step. Our tool helps you write persuasive, direct copy that gets your message across without confusion, leading to more conversions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+            <h2 class="mb-4 text-center fw-bold">Our Tool's Advanced Features: Your Content Optimization Hub 🚀</h2>
+            
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header"><h3 class="h5 mb-0"><span class="highlight-text">1. Detailed Readability Scores</span> 📊</h3></div>
+                <div class="card-body">
+                    <p>We use a variety of proven formulas to give you a precise understanding of your content's complexity. While many tools only provide a single metric, we offer a full breakdown.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Flesch-Kincaid Grade Level:</strong> Estimates the years of formal education needed to understand your text. A score between 7 and 9 is a great target for a general audience.</li>
+                        <li class="list-group-item"><strong>Gunning Fog Index:</strong> Focuses on complex words to estimate the required education level. A score under 12 is generally considered readable by a wide audience.</li>
+                        <li class="list-group-item"><strong>SMOG Index:</strong> A popular index for health-related content that estimates the grade level needed to understand your text.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header"><h3 class="h5 mb-0"><span class="highlight-text">2. Comprehensive Content Analysis</span> 📝</h3></div>
+                <div class="card-body">
+                    <p>Beyond readability scores, our tool provides a wealth of data to help you refine every aspect of your writing.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Word, Character, Sentence & Paragraph Counts:</strong> Essential metrics for managing content length and structure.</li>
+                        <li class="list-group-item"><strong>Reading & Speaking Time:</strong> Practical insights for planning audio content or presentations.</li>
+                        <li class="list-group-item"><strong>Keyword Density & Top Keywords:</strong> Helps you ensure you’re on topic without resorting to keyword stuffing.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header"><h3 class="h5 mb-0"><span class="highlight-text">3. Automated Meta Tags & SEO Data</span> 🎯</h3></div>
+                <div class="card-body">
+                    <p>This is a feature that truly sets our tool apart. It's not just a writing aid; it's an SEO powerhouse that automatically generates optimized SEO data.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>SEO Title & Description:</strong> We create compelling titles and descriptions that include your focus keyword like <span class="highlight-text">"content readability score checker tool"</span>.</li>
+                        <li class="list-group-item"><strong>Semantic/LSI Keywords:</strong> We identify keywords that are semantically related to your main topic, signaling to search engines that your content is comprehensive.</li>
+                        <li class="list-group-item"><strong>SEO-Friendly Slug & Alt Text Suggestions:</strong> We generate clean URL slugs and image alt text to improve your page's accessibility and SEO.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+            <h3 class="mb-4 text-center fw-bold">A Practical Guide to Using Our Tool for High-Ranking Content</h3>
+            <p class="text-muted text-center">Using our **free online readability checker** is a seamless process. Follow these steps to transform your content:</p>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Step 1: Paste Your Content</h5>
+                            <p class="card-text">Simply copy and paste your article, blog post, or any piece of writing into the text box. The tool begins its analysis instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Step 2: Review & Analyze</h5>
+                            <p class="card-text">Take a look at the initial scores and the Content Analysis section. Don't be discouraged by a low score; it's a starting point for improvement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Step 3: Refine Your Writing</h5>
+                            <p class="card-text">Make changes based on the feedback. Shorten complex sentences, replace multi-syllable words, and break up large paragraphs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Step 4: Finalize Your SEO</h5>
+                            <p class="card-text">Once your content is polished, use our generated Meta Tags & SEO Data. Copy and paste these into your website’s backend for full optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+            <h3 class="mb-4 text-center fw-bold">Our Tool vs. The Competition: Why We Stand Out</h3>
+            <p class="text-muted text-center">While other tools are useful, our tool provides a superior, more integrated experience by combining readability analysis with essential SEO and content metrics in a single, free platform.</p>
+            <ul class="list-group list-group-flush mt-4">
+                <li class="list-group-item"><strong>Hemingway Editor:</strong> Lacks the SEO and content analysis features that are critical for modern content creators.</li>
+                <li class="list-group-item"><strong>Yoast SEO:</strong> Provides basic readability analysis but is not a standalone tool.</li>
+                <li class="list-group-item"><strong>Readable:</strong> A powerful tool, but it's a paid service, while our core functionality is robust and available for free.</li>
+            </ul>
+        </section>
+
+        <hr class="my-5">
+
+        <section class="text-center">
+            <h3 class="mb-4 fw-bold">Conclusion: Your Partner in Content Excellence</h3>
+            <p class="lead">In the end, creating great content isn’t about tricking algorithms. It’s about building a connection with your audience. Our **content readability score checker tool** empowers you to do just that.</p>
+            <p class="mb-4">Don't settle for content that's just "good enough." Elevate your writing, improve your SEO, and engage your audience like never before.</p>
+            <a href="#" class="btn btn-primary btn-lg fw-bold">Try Our Free Readability Tool Now!</a>
+        </section>
+      
+    </div>
+
+<!-- footer area start  -->
+     <?php include('footer.php') ?> 
+     </div>
+</div>
+      <!-- footer area end  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentText = document.getElementById('contentText');
+            const analyzeButton = document.getElementById('analyzeButton');
+            const generateMetaTagsButton = document.getElementById('generateMetaTagsButton');
+            const contentAnalysisButton = document.getElementById('contentAnalysisButton');
+
+            const loadingReadability = document.getElementById('loadingReadability');
+            const loadingMetaTags = document.getElementById('loadingMetaTags');
+            const loadingContentAnalysis = document.getElementById('loadingContentAnalysis');
+
+            const readabilitySection = document.getElementById('readabilitySection');
+            const scoresContainer = document.getElementById('scoresContainer');
+            const readabilityErrorMessage = document.getElementById('readabilityErrorMessage');
+
+            const metaTagsSection = document.getElementById('metaTagsSection');
+            const metaTagsContent = document.getElementById('metaTagsContent');
+            const metaTagsError = document.getElementById('metaTagsError');
+
+            const contentAnalysisSection = document.getElementById('contentAnalysisSection');
+            const contentAnalysisContent = document.getElementById('contentAnalysisContent');
+            const contentAnalysisError = document.getElementById('contentAnalysisError');
+
+            const analysisWordsSpan = document.getElementById('analysisWords');
+            const analysisCharactersSpan = document.getElementById('analysisCharacters');
+            const analysisSentencesSpan = document.getElementById('analysisSentences');
+            const analysisParagraphsSpan = document.getElementById('analysisParagraphs');
+            const analysisReadingTimeSpan = document.getElementById('analysisReadingTime');
+            const analysisSpeakingTimeSpan = document.getElementById('analysisSpeakingTime');
+            const analysisReadingLevelSpan = document.getElementById('analysisReadingLevel');
+            const keywordDensityList = document.getElementById('keywordDensityList');
+
+            const difficultTermsCountSpan = document.getElementById('difficultTermsCount');
+            const highlightedContentDisplay = document.getElementById('highlightedContentDisplay');
+
+
+            const readabilityProgressCircle = document.getElementById('readabilityProgressCircle');
+            const readabilityPercentageSpan = document.getElementById('readabilityPercentage');
+            const readabilityGradeSpan = document.getElementById('readabilityGrade');
+
+            const visitorCounterSpan = document.getElementById('visitorCounter');
+
+            const MIN_TEXT_LENGTH = 5; // Minimum length for meaningful readability analysis
+            const LLM_MIN_TEXT_LENGTH = 100; // Minimum length for meaningful LLM generation
+
+            // --- Visitor Counter Logic ---
+            let visitorCount = localStorage.getItem('visitorCount');
+            if (visitorCount) {
+                visitorCount = parseInt(visitorCount) + 1;
+            } else {
+                visitorCount = 1;
+            }
+            localStorage.setItem('visitorCount', visitorCount);
+            visitorCounterSpan.textContent = visitorCount;
+            // --- End Visitor Counter Logic ---
+
+
+            // --- STOP WORDS LIST ---
+            // A comprehensive list of English stop words (can be expanded)
+            const stopWords = new Set([
+                "a", "an", "the", "and", "or", "but", "not", "he", "she", "it", "they", "we", "you", "i", "me", "him", "her", "us", "them",
+                "my", "your", "his", "her", "its", "our", "their", "this", "that", "these", "those", "is", "am", "are", "was", "were",
+                "be", "been", "being", "have", "has", "had", "do", "does", "did", "can", "could", "will", "would", "shall", "should",
+                "may", "might", "must", "of", "in", "on", "at", "to", "for", "with", "by", "from", "up", "down", "out", "off", "over",
+                "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each",
+                "few", "more", "most", "other", "some", "such", "no", "nor", "only", "own", "same", "so", "than", "too", "very", "s", "t",
+                "can", "will", "just", "don", "should", "now", "d", "ll", "m", "o", "re", "ve", "y", "ain", "aren", "couldn", "didn", "doesn",
+                "hadn", "hasn", "haven", "isn", "ma", "mightn", "mustn", "needn", "shan", "shouldn", "wasn", "weren", "won", "wouldn",
+                "about", "above", "after", "among", "as", "before", "between", "during", "each", "into", "through", "until", "while",
+                "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "whither", "who", "whoever", "whom", "whomever",
+                "whose", "why", "within", "without", "yet", "yourself", "yourselves", "de", "la", "et", "le", "les", "des", "du", "un", "une"
+            ]);
+
+
+            // --- Helper Functions (Readability & Content Analysis Calculations) ---
+
+            /**
+             * Counts words in a given text.
+             * @param {string} text
+             * @returns {number}
+             */
+            function countWords(text) {
+                // Remove non-alphanumeric characters (except apostrophes and hyphens), replace with space, then split by space
+                const cleanedText = text.replace(/[^a-zA-Z0-9\s'-]/g, '');
+                const words = cleanedText.split(/\s+/).filter(word => word.length > 0);
+                return words.length;
+            }
+
+            /**
+             * Counts sentences in a given text.
+             * @param {string} text
+             * @returns {number}
+             */
+            function countSentences(text) {
+                // Normalize common sentence endings and split
+                let cleanedText = text.replace(/([.!?])\s*(?=[A-Z])/g, '$1|'); // Add a delimiter before capitalized letters
+                cleanedText = cleanedText.replace(/([.!?])\s*$/g, '$1|'); // Add a delimiter at the end if it's a sentence ender
+                // Exclude common abbreviations that might end with a period but aren't sentence endings
+                const abbreviations = ['Mr.', 'Mrs.', 'Dr.', 'Ms.', 'Jr.', 'Sr.', 'St.', 'Ave.', 'etc.', 'i.e.', 'e.g.', 'vs.'];
+                abbreviations.forEach(abbr => {
+                    cleanedText = cleanedText.replace(new RegExp(abbr.replace(/\./g, '\\.') + '\\|', 'g'), abbr);
+                });
+
+                const sentences = cleanedText.split('|').filter(sentence => sentence.trim().length > 0);
+                return sentences.length;
+            }
+
+            /**
+             * Counts characters (letters and numbers) in a given text.
+             * @param {string} text
+             * @returns {number}
+             */
+            function countCharacters(text) {
+                const matches = text.match(/[a-zA-Z0-9]/g);
+                return matches ? matches.length : 0;
+            }
+
+            /**
+             * Counts paragraphs in a given text.
+             * @param {string} text
+             * @returns {number}
+             */
+            function countParagraphs(text) {
+                const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+                return paragraphs.length;
+            }
+
+            /**
+             * Estimates syllables in a word using a heuristic.
+             * This is a simplified heuristic and may not be perfectly accurate for all words.
+             * @param {string} word
+             * @returns {number}
+             */
+            function countSyllables(word) {
+                word = word.toLowerCase();
+                let syllables = 0;
+                const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+                const wordLength = word.length;
+
+                if (wordLength === 0) {
+                    return 0;
+                }
+
+                // Rule 1: Count vowel groups
+                let lastCharWasVowel = false;
+                for (let i = 0; i < wordLength; i++) {
+                    const char = word[i];
+                    const isVowel = vowels.includes(char);
+
+                    if (isVowel && !lastCharWasVowel) {
+                        syllables++;
+                    }
+                    lastCharWasVowel = isVowel;
+                }
+
+                // Rule 2: Subtract 1 for silent 'e' at the end of the word, if it's not the only vowel
+                if (wordLength > 1 && word[wordLength - 1] === 'e' && syllables > 1 && !vowels.includes(word[wordLength - 2])) {
+                    syllables--;
+                }
+
+                // Rule 3: Add 1 for 'le' at the end preceded by a consonant
+                if (wordLength > 2 && word.slice(-2) === 'le' && !vowels.includes(word[wordLength - 3])) {
+                    syllables++;
+                }
+
+                // Rule 4: Handle common suffixes that might affect syllable count (e.g., -es, -ed)
+                // This is a very basic attempt. A more robust solution would use a dictionary or more complex rules.
+                if (/(es|ed)$/.test(word) && syllables > 1) {
+                    syllables--;
+                }
+
+                return Math.max(1, syllables); // Ensure at least 1 syllable for any word
+            }
+
+            /**
+             * Counts complex words (3 or more syllables).
+             * @param {string} text
+             * @returns {number}
+             */
+            function countComplexWords(text) {
+                let complexWordCount = 0;
+                const words = text.replace(/[^a-zA-Z\s]/g, '').split(/\s+/).filter(word => word.length > 0);
+                words.forEach(word => {
+                    // Exclude proper nouns (capitalized words not at start of sentence) and common suffixes
+                    // This is a simplification. A full implementation would be more complex.
+                    if (word.length > 0 && word[0] === word[0].toUpperCase() && !['I'].includes(word)) {
+                        // Likely a proper noun, skip for simplicity in complex word count
+                        return;
+                    }
+                    if (countSyllables(word) >= 3) {
+                        complexWordCount++;
+                    }
+                });
+                return complexWordCount;
+            }
+
+            /**
+             * Calculates reading time in minutes.
+             * Assumes average reading speed of 200 words per minute.
+             * @param {number} wordCount
+             * @returns {string}
+             */
+            function calculateReadingTime(wordCount) {
+                const wordsPerMinute = 200;
+                const minutes = wordCount / wordsPerMinute;
+                const roundedMinutes = Math.round(minutes);
+                if (roundedMinutes < 1) {
+                    return "less than 1 min";
+                }
+                return `${roundedMinutes} min${roundedMinutes !== 1 ? 's' : ''}`;
+            }
+
+            /**
+             * Calculates speaking time in minutes.
+             * Assumes average speaking speed of 120 words per minute.
+             * @param {number} wordCount
+             * @returns {string}
+             */
+            function calculateSpeakingTime(wordCount) {
+                const wordsPerMinute = 120;
+                const minutes = wordCount / wordsPerMinute;
+                const roundedMinutes = Math.round(minutes);
+                if (roundedMinutes < 1) {
+                    return "less than 1 min";
+                }
+                return `${roundedMinutes} min${roundedMinutes !== 1 ? 's' : ''}`;
+            }
+
+            /**
+             * Calculates keyword density for top N *content* keywords, excluding stop words.
+             * @param {string} text
+             * @param {number} topN
+             * @returns {Array<Object>} Array of {keyword: string, count: number, density: string}
+             */
+            function calculateKeywordDensity(text, topN = 10) {
+                const cleanedText = text.toLowerCase().replace(/[^a-z\s]/g, ''); // Only letters and spaces
+                const words = cleanedText.split(/\s+/).filter(word => word.length > 0);
+
+                const filteredWords = words.filter(word => !stopWords.has(word)); // Filter out stop words
+
+                const wordCounts = {};
+                filteredWords.forEach(word => {
+                    wordCounts[word] = (wordCounts[word] || 0) + 1;
+                });
+
+                const sortedKeywords = Object.entries(wordCounts)
+                    .sort(([, countA], [, countB]) => countB - countA)
+                    .slice(0, topN);
+
+                const totalFilteredWords = filteredWords.length; // Use filtered word count for density
+                return sortedKeywords.map(([keyword, count]) => ({
+                    keyword: keyword,
+                    count: count,
+                    density: totalFilteredWords > 0 ? ((count / totalFilteredWords) * 100).toFixed(2) + '%' : '0%'
+                }));
+            }
+
+            /**
+             * Finds and highlights potentially difficult terms (3+ syllables, not stop words) in text.
+             * @param {string} text
+             * @returns {{highlightedHtml: string, difficultTermCount: number}}
+             */
+            function findAndHighlightDifficultTerms(text) {
+                let difficultTermCount = 0;
+                const highlightedWords = [];
+
+                // Regex to match words, including those with hyphens or apostrophes
+                const wordRegex = /[a-zA-Z'-]+/g;
+                let match;
+                let lastIndex = 0;
+
+                while ((match = wordRegex.exec(text)) !== null) {
+                    const word = match[0];
+                    const lowerCaseWord = word.toLowerCase();
+
+                    // Check if it's a difficult term
+                    if (word.length > 2 && countSyllables(word) >= 3 && !stopWords.has(lowerCaseWord)) {
+                        // Append text before the difficult word
+                        highlightedWords.push(text.substring(lastIndex, match.index));
+                        // Append the highlighted word
+                        highlightedWords.push(`<span class="highlight-difficult" title="${word} (Difficult Term)">${word}</span>`);
+                        difficultTermCount++;
+                    } else {
+                        // Append text before and the word itself if not difficult
+                        highlightedWords.push(text.substring(lastIndex, match.index + word.length));
+                    }
+                    lastIndex = match.index + word.length;
+                }
+                // Append any remaining text after the last word
+                highlightedWords.push(text.substring(lastIndex));
+
+                // Replace newlines with <br> for HTML display
+                const highlightedHtml = highlightedWords.join('').replace(/\n/g, '<br>');
+
+                return { highlightedHtml, difficultTermCount };
+            }
+
+
+            // --- Readability Analysis Logic ---
+
+            analyzeButton.addEventListener('click', () => {
+                const text = contentText.value.trim();
+
+                if (text.length < MIN_TEXT_LENGTH) {
+                    readabilityErrorMessage.textContent = `Please enter at least ${MIN_TEXT_LENGTH} characters for a meaningful readability analysis.`;
+                    readabilityErrorMessage.classList.remove('hidden');
+                    readabilitySection.classList.remove('hidden');
+                    // Clear previous scores but keep the circular progress bar structure
+                    const existingScoreCards = scoresContainer.querySelectorAll('.grid > div:not(#readabilityScoreCircle)');
+                    existingScoreCards.forEach(card => card.remove());
+                    updateCircularProgress(0, 'N/A'); // Reset circular progress
+                    return;
+                } else {
+                    readabilityErrorMessage.classList.add('hidden');
+                }
+
+                // Show loading indicator for readability
+                loadingReadability.classList.remove('hidden');
+                readabilitySection.classList.add('hidden'); // Hide results while loading
+                // Clear previous results except for the circular progress bar
+                const existingScoreCards = scoresContainer.querySelectorAll('.grid > div:not(#readabilityScoreCircle)');
+                existingScoreCards.forEach(card => card.remove());
+
+
+                try {
+                    // Calculate Metrics
+                    const totalWords = countWords(text);
+                    const totalSentences = countSentences(text);
+                    // const totalCharacters = countCharacters(text); // Not used in readability formulas
+
+                    if (totalWords === 0) {
+                        throw new Error('The text is too short or contains no words for analysis.');
+                    }
+
+                    // Calculate total syllables
+                    const wordsArray = text.replace(/[^a-zA-Z\s]/g, '').split(/\s+/).filter(word => word.length > 0);
+                    let totalSyllables = 0;
+                    wordsArray.forEach(word => {
+                        totalSyllables += countSyllables(word);
+                    });
+
+                    const complexWords = countComplexWords(text);
+
+                    const wordsPerSentence = totalSentences > 0 ? totalWords / totalSentences : 0;
+                    const syllablesPerWord = totalWords > 0 ? totalSyllables / totalWords : 0;
+                    const complexWordsPerWord = totalWords > 0 ? complexWords / totalWords : 0;
+
+                    // --- Readability Formulas ---
+
+                    // 1. Flesch-Kincaid Grade Level
+                    // Formula: 0.39 * (words / sentences) + 11.8 * (syllables / words) - 15.59
+                    const fleschKincaidGradeLevel = (0.39 * wordsPerSentence) + (11.8 * syllablesPerWord) - 15.59;
+
+                    // 2. Gunning Fog Index
+                    // Formula: 0.4 * ((words / sentences) + 100 * (complex words / words))
+                    const gunningFogIndex = 0.4 * (wordsPerSentence + (100 * complexWordsPerWord));
+
+                    const results = {
+                        fleschKincaidGradeLevel: fleschKincaidGradeLevel,
+                        gunningFogIndex: gunningFogIndex,
+                    };
+
+                    displayReadabilityScores(results);
+                    readabilitySection.classList.remove('hidden');
+
+                } catch (error) {
+                    console.error('Readability Analysis error:', error);
+                    readabilityErrorMessage.textContent = `An error occurred during readability analysis: ${error.message}. Please check your input.`;
+                    readabilityErrorMessage.classList.remove('hidden');
+                    readabilitySection.classList.remove('hidden');
+                    updateCircularProgress(0, 'N/A'); // Reset circular progress on error
+                } finally {
+                    // Hide loading indicator
+                    loadingReadability.classList.add('hidden');
+                }
+            });
+
+            function getReadabilityGrade(fleschKincaidGrade) {
+                if (fleschKincaidGrade <= 5) return 'A+'; // Very easy, kindergarten to 5th grade
+                if (fleschKincaidGrade <= 8) return 'A';  // Easy, 6th to 8th grade
+                if (fleschKincaidGrade <= 10) return 'B'; // Fairly easy, 9th to 10th grade
+                if (fleschKincaidGrade <= 12) return 'C'; // Standard, 11th to 12th grade
+                if (fleschKincaidGrade <= 15) return 'D'; // Difficult, college level
+                return 'F';                               // Very difficult, postgraduate level
+            }
+
+
+            function updateCircularProgress(percentage, grade) {
+                const radius = 40;
+                const circumference = 2 * Math.PI * radius;
+                const offset = circumference - (percentage / 100) * circumference;
+
+                readabilityProgressCircle.style.strokeDashoffset = offset;
+                readabilityPercentageSpan.textContent = `${Math.round(percentage)}%`;
+                // readabilityGradeSpan.textContent = `Grade: ${grade}`;
+
+                let colorClass = 'text-gray-500';
+                if (percentage >= 90) {
+                    colorClass = 'text-green-600';
+                } else if (percentage >= 70) {
+                    colorClass = 'text-lime-600';
+                } else if (percentage >= 50) {
+                    colorClass = 'text-yellow-600';
+                } else if (percentage >= 30) {
+                    colorClass = 'text-orange-600';
+                } else {
+                    colorClass = 'text-red-600';
+                }
+                // Remove existing color classes and add the new one
+                readabilityProgressCircle.classList.remove('text-green-600', 'text-lime-600', 'text-yellow-600', 'text-orange-600', 'text-red-600', 'text-gray-500');
+                readabilityProgressCircle.classList.add(colorClass);
+            }
+
+            function displayReadabilityScores(scores) {
+                // Clear previous scores but keep the circular progress bar structure
+                const existingScoreCards = scoresContainer.querySelectorAll('.grid > div:not(#readabilityScoreCircle)');
+                existingScoreCards.forEach(card => card.remove());
+                readabilityErrorMessage.classList.add('hidden'); // Hide any previous error messages
+
+                const fleschKincaid = scores.fleschKincaidGradeLevel;
+                // A lower Flesch-Kincaid score means easier readability.
+                // We want a higher percentage for better readability.
+                // Let's assume a range, e.g., 0-20 for Flesch-Kincaid.
+                // Grade 0-5 is Excellent (100-90%), 6-8 is Good (89-70%), 9-12 is Average (69-50%), 13-15 is Difficult (49-30%), >15 is Very Difficult (<30%)
+                const maxGrade = 20; // Max expected difficult grade level for calculation
+                let readabilityPercentage = ((maxGrade - Math.min(fleschKincaid, maxGrade)) / maxGrade) * 100;
+                readabilityPercentage = Math.max(0, Math.min(100, readabilityPercentage)); // Clamp between 0 and 100
+
+                const readabilityGrade = getReadabilityGrade(fleschKincaid);
+                updateCircularProgress(readabilityPercentage, readabilityGrade);
+
+                // Only include Flesch-Kincaid and Gunning Fog Index
+                const scoreOrder = [
+                    {
+                        key: 'fleschKincaidGradeLevel',
+                        name: 'Flesch-Kincaid Grade Level',
+                        description: 'This score measures how easy a text is to understand. A lower score indicates that the text is easier to read, corresponding to a lower school grade level.'
+                    },
+                    {
+                        key: 'gunningFogIndex',
+                        name: 'Gunning Fog Index',
+                        description: 'The Gunning Fog Index estimates the years of formal education a person needs to understand the text on the first reading. A lower index means the text is easier to read.'
+                    },
+                ];
+
+                scoreOrder.forEach(item => {
+                    const value = scores[item.key];
+                    if (value !== undefined) {
+                        let interpretation = '';
+                        let colorClass = 'text-gray-700'; // Default color
+
+                        // Basic interpretation for grade levels (adjust as needed)
+                        if (item.key.includes('Grade') || item.key.includes('Index')) {
+                            if (value <= 6) {
+                                interpretation = 'Very Easy to Read';
+                                colorClass = 'text-green-600';
+                            } else if (value <= 9) {
+                                interpretation = 'Fairly Easy to Read';
+                                colorClass = 'text-lime-600';
+                            } else if (value <= 12) {
+                                interpretation = 'Average Difficulty';
+                                colorClass = 'text-yellow-600';
+                            } else if (value <= 16) {
+                                interpretation = 'Difficult to <br>Read'; // Added <br> here
+                                colorClass = 'text-orange-600';
+                            } else {
+                                interpretation = 'Very Difficult to <br>Read'; // Added <br> here
+                                colorClass = 'text-red-600';
+                            }
+                        }
+
+                        const cardHTML = `
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front bg-white">
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-2">${item.name}</h3>
+                                        <p class="text-4xl font-bold ${colorClass} mb-3">${typeof value === 'number' ? value.toFixed(2) : value}</p>
+                                        <p class="text-sm text-gray-500">${interpretation}</p>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>${item.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        scoresContainer.insertAdjacentHTML('beforeend', cardHTML);
+                    }
+                });
+            }
+
+            /**
+             * Converts basic markdown (like **bold**, *italic*, - list, # headings) to HTML.
+             * This is a simplified converter and won't handle all markdown complexities.
+             * @param {string} markdownText
+             * @returns {string} HTML string
+             */
+            function renderMarkdown(markdownText) {
+                let htmlText = markdownText;
+
+                // Convert headings (e.g., ## Heading)
+                htmlText = htmlText.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+                htmlText = htmlText.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+                htmlText = htmlText.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+
+                // Convert bold (**text**)
+                htmlText = htmlText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+                // Convert italic (*text*)
+                htmlText = htmlText.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+                // Convert unordered lists (- item or * item)
+                // Need to handle multi-line list items and block-level wrapping
+                const listItems = htmlText.match(/^(-|\*)\s.*(\n(-|\*)\s.*)*/g);
+                if (listItems) {
+                    listItems.forEach(listItemBlock => {
+                        const htmlList = listItemBlock.split('\n').map(line => {
+                            if (line.match(/^(-|\*)\s/)) {
+                                return `<li>${line.replace(/^(-|\*)\s/, '').trim()}</li>`;
+                            }
+                            return line; // Should not happen if regex is perfect, but fallback
+                        }).join('');
+                        htmlText = htmlText.replace(listItemBlock, `<ul>${htmlList}</ul>`);
+                    });
+                }
+
+                // Add line breaks for paragraphs, ensuring not to double-wrap existing block elements
+                htmlText = htmlText.split('\n').map(line => {
+                    const trimmedLine = line.trim();
+                    if (trimmedLine === '') {
+                        return ''; // Remove empty lines
+                    }
+                    // Check if the line already looks like a block-level HTML tag or is inside one
+                    if (trimmedLine.startsWith('<h') || trimmedLine.startsWith('<ul') ||
+                        trimmedLine.startsWith('</ul') || trimmedLine.startsWith('<li') ||
+                        trimmedLine.startsWith('<p>') || trimmedLine.startsWith('</p>') ||
+                        trimmedLine.startsWith('<div>') || trimmedLine.startsWith('</div>')) {
+                        return line;
+                    }
+                    return `<p>${trimmedLine}</p>`;
+                }).filter(line => line !== '').join('\n'); // Filter out empty lines from split/map
+
+                return htmlText;
+            }
+
+
+            // --- Gemini API Integration ---
+
+            async function callGeminiAPI(prompt, loadingElement, errorElement, contentElement) {
+                const text = contentText.value.trim();
+
+                if (text.length < LLM_MIN_TEXT_LENGTH) {
+                    errorElement.textContent = `Please enter at least ${LLM_MIN_TEXT_LENGTH} characters for a meaningful AI generation.`;
+                    errorElement.classList.remove('hidden');
+                    contentElement.innerHTML = ''; // Clear previous content
+                    return;
+                } else {
+                    errorElement.classList.add('hidden');
+                }
+
+                loadingElement.classList.remove('hidden');
+                contentElement.parentElement.classList.add('hidden'); // Hide section while loading
+                contentElement.innerHTML = ''; // Clear previous content
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt + text }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = "AIzaSyC_r7R3-cKtyO7u5Lu25Q4aNQPvROQ04Nk"; // Replace with your actual Gemini API Key
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorResponse = await response.json().catch(() => ({}));
+                        throw new Error(`API error: ${response.status} ${response.statusText} - ${errorResponse.error?.message || 'Unknown error'}`);
+                    }
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const generatedText = result.candidates[0].content.parts[0].text;
+                        // Render markdown content to HTML
+                        contentElement.innerHTML = renderMarkdown(generatedText);
+                        contentElement.parentElement.classList.remove('hidden'); // Show section
+                    } else {
+                        throw new Error("No valid response from AI. Please try again.");
+                    }
+                } catch (error) {
+                    console.error('Gemini API error:', error);
+                    errorElement.textContent = `Failed to generate response: ${error.message}`;
+                    errorElement.classList.remove('hidden');
+                    contentElement.parentElement.classList.remove('hidden'); // Show section even with error
+                } finally {
+                    loadingElement.classList.add('hidden');
+                }
+            }
+
+
+            generateMetaTagsButton.addEventListener('click', () => {
+                const prompt = `Based on the following content, generate SEO-friendly meta tags and related information. Ensure all elements are optimized for search engines and user experience.
+
+Provide the following, adhering to the specified constraints and formatting:
+
+1.  **Title (45-60 characters):** A compelling and keyword-rich title for a web page.
+2.  **Description (145-160 characters):m;** A concise summary that encourages clicks and accurately describes the content.
+3.  **Keywords:**
+    * **Focus Keyword:** One primary keyword that the content targets.
+    * **Semantic/LSI Keywords:** Three closely related or Latent Semantic Indexing (LSI) keywords (comma-separated).
+4.  **Slug:** A clean, URL-friendly slug (lowercase, words separated by hyphens, no special characters).
+5.  **Alt Text (for a relevant image):** A descriptive alt text (max 125 characters) for an image that would accompany this content.
+
+Format the output using markdown with bold labels for each section.
+
+Content:
+`;
+                callGeminiAPI(prompt, loadingMetaTags, metaTagsError, metaTagsContent);
+                metaTagsSection.classList.remove('hidden'); // Ensure the section is visible for loading/results
+            });
+
+            // Content Analysis Button Functionality
+            contentAnalysisButton.addEventListener('click', () => {
+                const text = contentText.value.trim();
+
+                if (text.length < MIN_TEXT_LENGTH) {
+                    contentAnalysisError.textContent = `Please enter at least ${MIN_TEXT_LENGTH} characters to perform content analysis.`;
+                    contentAnalysisError.classList.remove('hidden');
+                    contentAnalysisSection.classList.remove('hidden');
+                    // Clear previous analysis data
+                    analysisWordsSpan.textContent = '0';
+                    analysisCharactersSpan.textContent = '0';
+                    analysisSentencesSpan.textContent = '0';
+                    analysisParagraphsSpan.textContent = '0';
+                    analysisReadingTimeSpan.textContent = '0 mins';
+                    analysisSpeakingTimeSpan.textContent = '0 mins';
+                    analysisReadingLevelSpan.textContent = 'N/A';
+                    keywordDensityList.innerHTML = '';
+                    difficultTermsCountSpan.textContent = '0';
+                    highlightedContentDisplay.innerHTML = '';
+                    return;
+                } else {
+                    contentAnalysisError.classList.add('hidden');
+                }
+
+                loadingContentAnalysis.classList.remove('hidden');
+                contentAnalysisSection.classList.add('hidden'); // Hide section while loading
+
+                try {
+                    const totalWords = countWords(text);
+                    const totalCharacters = countCharacters(text);
+                    const totalSentences = countSentences(text);
+                    const totalParagraphs = countParagraphs(text);
+                    const readingTime = calculateReadingTime(totalWords);
+                    const speakingTime = calculateSpeakingTime(totalWords);
+
+                    // Re-calculate Flesch-Kincaid to get reading level for display
+                    const wordsPerSentence = totalSentences > 0 ? totalWords / totalSentences : 0;
+                    const wordsArray = text.replace(/[^a-zA-Z\s]/g, '').split(/\s+/).filter(word => word.length > 0);
+                    let totalSyllables = 0;
+                    wordsArray.forEach(word => {
+                        totalSyllables += countSyllables(word);
+                    });
+                    const syllablesPerWord = totalWords > 0 ? totalSyllables / totalWords : 0;
+                    const fleschKincaidGradeLevel = (0.39 * wordsPerSentence) + (11.8 * syllablesPerWord) - 15.59;
+                    const readingLevel = getReadabilityGrade(fleschKincaidGradeLevel);
+
+
+                    const keywordDensity = calculateKeywordDensity(text, 10); // Top 10 keywords
+                    const { highlightedHtml, difficultTermCount } = findAndHighlightDifficultTerms(text);
+
+
+                    // Update DOM with analysis results
+                    analysisWordsSpan.textContent = totalWords;
+                    analysisCharactersSpan.textContent = totalCharacters;
+                    analysisSentencesSpan.textContent = totalSentences;
+                    analysisParagraphsSpan.textContent = totalParagraphs;
+                    analysisReadingTimeSpan.textContent = readingTime;
+                    analysisSpeakingTimeSpan.textContent = speakingTime;
+                    analysisReadingLevelSpan.textContent = readingLevel;
+
+                    keywordDensityList.innerHTML = ''; // Clear previous
+                    if (keywordDensity.length > 0) {
+                        keywordDensity.forEach(item => {
+                            const div = document.createElement('div');
+                            div.className = 'flex justify-between items-center bg-yellow-100 p-2 rounded-lg';
+                            div.innerHTML = `
+                                <span class="font-medium">${item.keyword}:</span>
+                                <span class="font-bold text-lg">${item.density} (${item.count})</span>
+                            `;
+                            keywordDensityList.appendChild(div);
+                        });
+                    } else {
+                        keywordDensityList.innerHTML = '<p class="text-gray-500 text-center">No significant keywords found.</p>';
+                    }
+
+                    difficultTermsCountSpan.textContent = difficultTermCount;
+                    highlightedContentDisplay.innerHTML = highlightedHtml;
+
+
+                    contentAnalysisSection.classList.remove('hidden'); // Show the section
+                } catch (error) {
+                    console.error('Content Analysis error:', error);
+                    contentAnalysisError.textContent = `An error occurred during content analysis: ${error.message}.`;
+                    contentAnalysisError.classList.remove('hidden');
+                    contentAnalysisSection.classList.remove('hidden');
+                } finally {
+                    loadingContentAnalysis.classList.add('hidden'); // Hide loading
+                }
+            });
+
+        });
+    </script>
+    
+    
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery-3.7.1.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.magnific-popup.min.js"></script>
+  <script src="assets/vendor/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/counter.js"></script>
+  <script src="assets/vendor/progressbar.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollSmoother.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/SplitText.min.js"></script>
+  <script src="assets/vendor/jquery.meanmenu.min.js"></script>
+  <script src="assets/vendor/jquery.nice-select.min.js"></script>
+  <script src="assets/vendor/backToTop.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+    
+</body>
+</html>
